@@ -1,0 +1,12 @@
+# Minimal project rc for Infinix X6858 recovery (vendor_boot XOS 16.3)
+# TWRP provides its own init; this file just ensures sanity on boot.
+
+on early-init
+    setprop ro.recovery.ui.margin_height 68
+    setprop ro.recovery.usb.vid 18D1
+    setprop ro.recovery.usb.adb.pid D001
+    setprop ro.recovery.usb.fastboot.pid 4EE0
+
+on init
+    chmod 0777 /dev/block/by-name/vendor_boot
+    chmod 0777 /dev/block/by-name/init_boot

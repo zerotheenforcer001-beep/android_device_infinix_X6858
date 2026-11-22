@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <string>
 #include <unistd.h>
 #include <android-base/properties.h>
 
@@ -27,8 +28,14 @@ void vendor_load_properties()
         property_override(string("ro.product.") + prop + string("brand"), "Infinix");
         property_override(string("ro.product.") + prop + string("name"), "X6858-OP");
         property_override(string("ro.product.") + prop + string("device"), "Infinix-X6858");
-        property_override(string("ro.product.") + prop + string("model"), "Infinix NOTE 50 4G");
+        property_override(string("ro.product.") + prop + string("model"), "Infinix X6858");
         property_override(string("ro.product.") + prop + string("marketname"), "Infinix NOTE 50 4G");
-        property_override(string("ro.product.system.") + prop + string("device"), "Infinix NOTE 50 4G");
     }
+
+    // Base system product props (set once, not per-partition)
+    property_override(string("ro.product.system.device"), "Infinix-X6858");
+    property_override(string("ro.product.system.model"), "Infinix X6858");
+    property_override(string("ro.product.system.brand"), "Infinix");
+    property_override(string("ro.product.system.name"), "X6858-OP");
+    property_override(string("ro.product.system.marketname"), "Infinix NOTE 50 4G");
 }
